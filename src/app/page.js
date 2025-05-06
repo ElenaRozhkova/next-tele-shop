@@ -1,17 +1,19 @@
 import RecipeList from '@/app/components/RecipeList';
 import SimpleFilter from "@/app/components/SimpleFilter";
+import { getRecipes } from '@/app/lib/data'
 
-async function getRecipes() {
-  const res = await fetch('http://localhost:3000/api/rezepte');
-  return res.json();
-}
+
 
 export default async function Home({ searchParams }) {
   const recipes = await getRecipes();
-  const categories = [...new Set(recipes.map(r => r.kategorie_name))];
+  console.log(recipes)
+
+  const categories = [...new Set(recipes.map(r => r.kategorie))];
   const filteredRecipes = searchParams?.kategorie
-    ? recipes.filter(r => r.kategorie_name === decodeURIComponent(searchParams.kategorie))
+    ? recipes.filter(r => r.kategorie === decodeURIComponent(searchParams.kategorie))
     : recipes;
+
+  console.log(filteredRecipes)
 
   return (
     <>

@@ -36,12 +36,12 @@ export default async function RecipeList({ recipes, searchParams }) {
                                 <p className="flex items-center text-gray-600">
                                     <span className="font-medium mr-2">Kategorie:</span>
                                     <span className={`px-2 py-1 rounded-full text-xs font-semibold
-                    ${recipe.kategorie_name === 'Fleisch & Gemüse'
+                    ${recipe.kategorie === 'Fleisch & Gemüse'
                                             ? 'bg-green-100 text-green-800'  // Grün
                                             : 'bg-gray-100 text-gray-800'   // Standard
                                         }`}
                                     >
-                                        {recipe.kategorie_name}
+                                        {recipe.kategorie}
                                     </span>
                                 </p>
 
