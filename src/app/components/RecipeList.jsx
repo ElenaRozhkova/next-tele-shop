@@ -56,12 +56,6 @@ export default async function RecipeList({ recipes }) {
                                 </p>
                             </div>
 
-                            <Link
-                                href={`/rezepte/${recipe.id}`}
-                                className="mt-4 inline-block px-4 py-2 bg-amber-500 text-white rounded-md hover:bg-amber-600 transition-colors"
-                            >
-                                Zum Rezept
-                            </Link>
                         </div>
                     </div>
                 ))}
