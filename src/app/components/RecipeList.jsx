@@ -1,23 +1,23 @@
 import Link from 'next/link';
 
 
-export default async function RecipeList({ recipes, searchParams }) {
-    const filteredRecipes = searchParams?.kategorie
+export default async function RecipeList({ recipes }) {
+    /*const filteredRecipes = searchParams?.kategorie
         ? recipes.filter(r => r.kategorie_name === decodeURIComponent(searchParams.kategorie))
         : recipes;
-
+*/
 
     return (
         <div className="container mx-auto px-4 ">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredRecipes.map((recipe) => (
+                {recipes.map((recipe) => (
                     <div
                         key={recipe.id}
                         className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
                     >
                         <div className="p-6">
                             <h2 className="text-xl font-bold text-gray-800 mb-2">
-                                {recipe.titel}
+                                {recipe.name}
                             </h2>
 
                             <div className="space-y-2">
