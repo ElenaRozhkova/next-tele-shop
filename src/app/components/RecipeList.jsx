@@ -1,64 +1,62 @@
 import Link from 'next/link';
 
-
 export default async function RecipeList({ recipes }) {
-    /*const filteredRecipes = searchParams?.kategorie
-        ? recipes.filter(r => r.kategorie_name === decodeURIComponent(searchParams.kategorie))
-        : recipes;
-*/
-
     return (
-        <div className="container mx-auto px-4 ">
+        <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {recipes.map((recipe) => (
-                    <div
-                        key={recipe.id}
-                        className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
-                    >
-                        <div className="p-6">
-                            <h2 className="text-xl font-bold text-gray-800 mb-2">
-                                {recipe.name}
-                            </h2>
+                {recipes.map((recipe) => {
+                    // Определяем классы для типа
+                    const typClasses = recipe.type_name === 'Frisch' || recipe.type_name === 'Fertig'
+                        ? 'bg-blue-100 text-blue-800'  // синий
+                        : 'bg-gray-100 text-gray-800'; // стандартный
 
-                            <div className="space-y-2">
-                                <p className="flex items-center text-gray-600">
-                                    <span className="font-medium mr-2">Typ:</span>
-                                    <span className={`px-2 py-1 rounded-full text-xs font-semibold
-                    ${recipe.typ === 'Frisch' || recipe.typ === 'Fertig'
-                                            ? 'bg-blue-100 text-blue-800'  //Blau
-                                            : 'bg-gray-100 text-gray-800'   // Standard
-                                        }`}
-                                    >
-                                        {recipe.typ}
-                                    </span>
-                                </p>
+                    // Преобразуем price в число, если это строка или другой тип
+                    const price = typeof recipe.price === 'number' ? recipe.price : parseFloat(recipe.price);
 
-                                <p className="flex items-center text-gray-600">
-                                    <span className="font-medium mr-2">Kategorie:</span>
-                                    <span className={`px-2 py-1 rounded-full text-xs font-semibold
-                                      ${recipe.kategorie === 'Fleisch & Gemüse'
-                                            ? 'bg-green-100 text-green-800'  // Grün
-                                            : 'bg-gray-100 text-gray-800'   // Standard
-                                        }`}
-                                    >
-                                        {recipe.kategorie}
-                                    </span>
-                                </p>
+                    return (
+                        <div
+                            key={recipe.id}
+                            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                        >
+                            <div className="p-6">
+                                {/* Изображение */}
+                                <img
 
-                                <p className="flex items-center text-gray-600">
-                                    <span className="font-medium mr-2">Aufwärmbar:</span>
-                                    <span className={`px-2 py-1 rounded-full text-xs font-semibold ${recipe.aufwaermbar
-                                        ? 'bg-green-100 text-green-800' //Grün
-                                        : 'bg-red-100 text-red-800'     //Rot
-                                        }`}>
-                                        {recipe.aufwaermbar ? 'Ja' : 'Nein'}
-                                    </span>
-                                </p>
+                                    src={recipe.image_url}
+                                    alt={recipe.name}
+                                    className="w-full h-full object-cover rounded-md mb-4"
+                                />
+
+                                <h2 className="text-xl font-bold text-gray-800 mb-2">{recipe.name}</h2>
+
+                                {/* Цена */}
+                                <p className="text-lg font-semibold text-gray-800 mb-2">{`€${price.toFixed(2)}`}</p>
+
+                                <div className="space-y-2">
+                                    {/* Бренд */}
+                                    <p className="flex items-center text-gray-600">
+                                        <span className="font-medium mr-2">Brand:</span>
+                                        <span className="text-gray-800">{recipe.brand_name}</span>
+                                    </p>
+
+                                    {/* Тип */}
+                                    <p className="flex items-center text-gray-600">
+                                        <span className="font-medium mr-2">Type:</span>
+                                        <span className={`px-2 py-1 rounded-full text-xs font-semibold ${typClasses}`}>
+                                            {recipe.type_name}
+                                        </span>
+                                    </p>
+
+                                    {/* Свойства */}
+                                    <p className="flex items-center text-gray-600">
+                                        <span className="font-medium mr-2">Properties:</span>
+                                        <span className="text-gray-800">{recipe.properties}</span>
+                                    </p>
+                                </div>
                             </div>
-
                         </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
         </div>
     );

@@ -9,24 +9,25 @@ export default async function Home({ searchParams }) {
   const recipes = await getRecipes();
   console.log(searchParams)
 
+
+  const query = searchParams?.query || '';
+  const currentPage = Number(searchParams?.page) || 1;
+
   /*
-    const query = searchParams?.query || '';
-    const currentPage = Number(searchParams?.page) || 1;
-  
-  
     const categories = [...new Set(recipes.map(r => r.kategorie))];
     // Фильтрация по категории
     let filteredRecipes = searchParams?.kategorie
       ? recipes.filter(r => r.kategorie === decodeURIComponent(searchParams.kategorie))
       : recipes;
-  
-    // Фильтрация по поисковому запросу
-    if (query) {
-      filteredRecipes = filteredRecipes.filter(recipe =>
-        recipe.titel?.toLowerCase().includes(query.toLowerCase()) // Используем безопасную проверку
-      );
-    }
   */
+  let filteredRecipes = recipes;
+  // Фильтрация по поисковому запросу
+  if (query) {
+    filteredRecipes = recipes.filter(recipe =>
+      recipe.name?.toLowerCase().includes(query.toLowerCase()) // Используем безопасную проверку
+    );
+  }
+
 
 
   return (
@@ -36,7 +37,11 @@ export default async function Home({ searchParams }) {
         <Search />
       </div>
       <RecipeList recipes={filteredRecipes} />*/}
-      <RecipeList recipes={recipes} />
+      <div className='container m-[40px] mx-auto px-4  flex gap-[20px] justify-between items-center flex-wrap-reverse'>
+
+        <Search />
+      </div>
+      <RecipeList recipes={filteredRecipes} />
     </>
   );
 }
