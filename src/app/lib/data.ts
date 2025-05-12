@@ -3,9 +3,7 @@ const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
 export async function getRecipes() {
     try {
-        const data = await sql`  SELECT rezepte.id, rezepte.titel, kategorie_filter.title as kategorie, rezepte.typ, rezepte.aufwaermbar 
-            FROM rezepte
-            JOIN kategorie_filter ON rezepte.kategorie_id = kategorie_filter.id`;
+        const data = await sql`  SELECT * from device`;
         return data;
     }
     catch (error) {
