@@ -3,7 +3,7 @@ const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
 export async function getRecipes() {
     try {
-        const data = await sql`  SELECT * from device`;
+        const data = await sql`  SELECT * from brand`;
         return data;
     }
     catch (error) {
