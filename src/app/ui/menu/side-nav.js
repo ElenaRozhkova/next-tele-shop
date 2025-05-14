@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import { SparklesIcon } from '@heroicons/react/24/outline';
 import NavLinks from '@/app/ui/menu/nav-links';
-import { GET } from '@/app/api/nav-links/route'; // Fetch function to get types
 import { getTypes } from '@/app/lib/getTypes';
 
 // Asynchronous function for fetching types data
