@@ -1,6 +1,6 @@
 import RecipeList from '@/app/components/RecipeList';
 import BrandFilter from "@/app/components/BrandFilter";
-import TypeFilter from "@/app/components/TypeFilter";
+import TypeFilter from "@/app/lib/TypeFilter";
 import Search from "@/app/ui/search";
 import { getRecipes } from '@/app/lib/data'
 

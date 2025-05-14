@@ -7,7 +7,7 @@ export default function Navbar() {
 
     const navItems = [
         { name: "Home", href: "/" },
-        { name: "Geräte", href: "/geraete" },
+        { name: "Geräte", href: "/" },
         { name: "News", href: "/" },
         { name: "Contact", href: "/" },
     ];
@@ -20,7 +20,7 @@ export default function Navbar() {
                 </Link>
                 {/* Hamburger für Mobile */}
                 <button
-                    className="lg:hidden p-2"
+                    className="lg:hidden p-2 hidden"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     aria-label="Menü öffnen"
                 >
@@ -29,7 +29,7 @@ export default function Navbar() {
                     </svg>
                 </button>
                 {/* Desktop-Menü */}
-                <ul className="hidden lg:flex space-x-8 items-center">
+                <ul className="hidden  space-x-8 items-center">
                     {navItems.map((item) => (
                         <li key={item.name}>
                             <Link href={item.href} className="text-gray-700 hover:text-gray-800 text-lg">

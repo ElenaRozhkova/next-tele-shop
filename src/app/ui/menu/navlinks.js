@@ -15,7 +15,7 @@ const links = [
     { name: 'Home', href: '/', icon: HomeIcon },
     {
         name: 'Geräte',
-        href: '/geraete',
+        href: '/',
         icon: DevicePhoneMobileIcon,
     },
     { name: 'Über uns', href: '/ueber-uns', icon: UserGroupIcon },
@@ -39,8 +39,8 @@ export default function NavLinks() {
                             },
                         )}
                     >
-                        <LinkIcon className="w-6" />
-                        <p className="hidden md:block">{link.name}</p>
+
+                        <p className="md:block">{link.name}</p>
                     </Link>
                 );
             })}

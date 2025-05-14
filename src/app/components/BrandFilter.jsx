@@ -15,7 +15,7 @@ export default function BrandFilter({ brand_name, type_name }) {
             <div className="flex flex-wrap gap-2 items-center justify-center">
                 {/* Кнопка "Alle" */}
                 <Link
-                    href={`/geraete/${type_name}`}
+                    href={`/${type_name}`}
                     className="px-4 py-2 text-center bg-gray-800 text-white rounded-full text-sm"
                 >
                     Alle
@@ -29,7 +29,7 @@ export default function BrandFilter({ brand_name, type_name }) {
                     return (
                         <Link
                             key={brand}
-                            href={`/geraete/${type_name}/?${params.toString()}`}
+                            href={`/${type_name}/?${params.toString()}`}
                             className={`px-4 py-2 rounded-full text-sm ${currentBrand === brand
                                 ? 'bg-green-500 text-white hover:bg-green-600'
                                 : 'bg-gray-100 text-gray-800 hover:bg-gray-200'

@@ -10,7 +10,7 @@ export default function TypeFilter({ type_name }) {
     // Формируем ссылку без type_name
     const baseParams = new URLSearchParams(searchParams.toString());
     baseParams.delete('type_name');
-    const allHref = `geraete/?${baseParams.toString()}`;
+    const allHref = `?${baseParams.toString()}`;
 
     return (
         <div className="">
@@ -31,7 +31,7 @@ export default function TypeFilter({ type_name }) {
                     return (
                         <Link
                             key={type}
-                            href={`geraete/?${params.toString()}`}
+                            href={`?${params.toString()}`}
                             className={`px-4 py-2 rounded-full text-sm ${currentType === type
                                 ? 'bg-green-500 text-white hover:bg-green-600'
                                 : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
