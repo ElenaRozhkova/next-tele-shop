@@ -1,7 +1,7 @@
 import postgres from 'postgres';
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
-export async function getTypes() {
+export const GET = async (req: Request) => {
     try {
         const data = await sql`SELECT
   name AS type_name
