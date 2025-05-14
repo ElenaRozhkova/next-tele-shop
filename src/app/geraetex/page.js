@@ -6,7 +6,7 @@ import { getRecipes } from '@/app/lib/data'
 
 
 
-export default async function Home({ searchParams }) {
+export default async function Home({ params, searchParams }) {
     const recipes = await getRecipes();
 
     const brand_name = [...new Set(recipes.map(r => r.brand_name))];
@@ -38,7 +38,7 @@ export default async function Home({ searchParams }) {
     return (
         <>
             <div className='container m-[20px] mx-auto px-4  flex gap-[20px] justify-between items-center flex-wrap-reverse'>
-                <BrandFilter brand_name={brand_name} />
+                <BrandFilter brand_name={brand_name} type_name={''} />
                 <Search />
             </div>
 
