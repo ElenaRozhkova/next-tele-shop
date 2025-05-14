@@ -3,10 +3,11 @@ import Link from 'next/link';
 import { SparklesIcon } from '@heroicons/react/24/outline';
 import NavLinks from '@/app/ui/menu/nav-links';
 import { GET } from '@/app/api/nav-links/route'; // Fetch function to get types
+import { getTypes } from '@/app/lib/getTypes';
 
 // Asynchronous function for fetching types data
 export default async function SideNav() {
-    const types = await GET(); // Fetch data here
+    const types = await getTypes(); // Fetch data here
 
     return (
         <div className="flex h-full flex-col px-3 py-4 md:px-2">
