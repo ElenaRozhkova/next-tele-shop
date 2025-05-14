@@ -32,7 +32,7 @@ export default function Navbar() {
                 <ul className="hidden lg:flex space-x-8 items-center">
                     {navItems.map((item) => (
                         <li key={item.name}>
-                            <Link href={item.href} className="text-gray-700 hover:bg-gray-800 text-lg">
+                            <Link href={item.href} className="text-gray-700 hover:text-gray-800 text-lg">
                                 {item.name}
                             </Link>
                         </li>

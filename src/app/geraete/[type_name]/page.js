@@ -30,7 +30,7 @@ export default async function TypePage({ params, searchParams }) {
 
     return (
         <>
-            <div className='container m-[40px] mx-auto px-4  flex gap-[20px] justify-between items-center flex-wrap-reverse'>
+            <div className='container m-[20px] mx-auto px-4  flex gap-[20px] justify-between items-center flex-wrap-reverse'>
                 <BrandFilter brand_name={brand_name} type_name={type_name} />
                 <Search />
             </div>
