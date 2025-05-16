@@ -54,7 +54,7 @@ export default async function RecipeList({ recipes }) {
                                     {/* Свойства */}
                                     <p className="flex items-center text-gray-600">
                                         {/* <span className="font-medium mr-2">Properties:</span>*/}
-                                        <span className="text-gray-800">{recipe.properties}</span>
+                                        <span className="text-gray-800 text-center ">{recipe.properties}</span>
                                     </p>
                                 </div>
                             </div>
