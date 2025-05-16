@@ -27,29 +27,33 @@ export default async function RecipeList({ recipes }) {
                                     className="w-full h-full object-cover rounded-md mb-4"
                                 />
 
-                                <h2 className="text-xl font-bold text-gray-800 mb-2">{recipe.name}</h2>
+                                <h2 className="text-xl font-bold text-gray-800 mb-2 text-center">{recipe.name}</h2>
 
                                 {/* Цена */}
-                                <p className="text-lg font-semibold text-gray-800 mb-2">{`€${price.toFixed(2)}`}</p>
+                                <div className="flex flew-row flex-wrap justify-center items-center">
+                                    <span className="font-medium mr-2">ab </span>
+                                    <p className="text-lg font-semibold text-gray-800 ">{`€${price.toFixed(2)}`}</p>
+                                </div>
+
 
                                 <div className="space-y-2">
-                                    {/* Бренд */}
+                                    {/*     Бренд 
                                     <p className="flex items-center text-gray-600">
                                         <span className="font-medium mr-2">Brand:</span>
                                         <span className="text-gray-800">{recipe.brand_name}</span>
-                                    </p>
+                                    </p>*/}
 
-                                    {/* Тип */}
+                                    {/* Тип 
                                     <p className="flex items-center text-gray-600">
                                         <span className="font-medium mr-2">Type:</span>
                                         <span className={`px-2 py-1 rounded-full text-xs font-semibold ${typClasses}`}>
                                             {recipe.type_name}
                                         </span>
-                                    </p>
-
+                                    </p>*/}
+                                    <hr className="my-4 border-t border-gray-300" />
                                     {/* Свойства */}
                                     <p className="flex items-center text-gray-600">
-                                        <span className="font-medium mr-2">Properties:</span>
+                                        {/* <span className="font-medium mr-2">Properties:</span>*/}
                                         <span className="text-gray-800">{recipe.properties}</span>
                                     </p>
                                 </div>
@@ -58,6 +62,6 @@ export default async function RecipeList({ recipes }) {
                     );
                 })}
             </div>
-        </div>
+        </div >
     );
 }
