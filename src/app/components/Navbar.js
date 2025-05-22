@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -18,31 +19,8 @@ export default function Navbar() {
                 <Link href="/" className="bg-white-800 font-bold text-2xl">
                     NEXTNEWS
                 </Link>
-                {/* Hamburger für Mobile */}
-                <button
-                    className="lg:hidden p-2 hidden"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    aria-label="Menü öffnen"
-                >
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
-                {/* Desktop-Menü */}
-                <ul className="hidden  space-x-8 items-center">
-                    {navItems.map((item) => (
-                        <li key={item.name}>
-                            <Link href={item.href} className="text-gray-700 hover:text-gray-800 text-lg">
-                                {item.name}
-                            </Link>
-                        </li>
-                    ))}
-                    <li>
-                        <button className="bg-gray-600 hover:bg-gray-800 text-white px-6 py-2 rounded-md">
-                            Login
-                        </button>
-                    </li>
-                </ul>
+                <LanguageSwitcher />
+
                 {/* Mobile-Menü */}
                 <div
                     className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
