@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import LanguageSwitcher from "./LanguageSwitcher";
 
-export default function Navbar() {
+export default function Navbar({ locale }) {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const navItems = [
@@ -16,7 +16,7 @@ export default function Navbar() {
     return (
         <nav className="w-full px-4 py-4 bg-white bg-opacity-90 sticky top-0 shadow-lg z-50">
             <div className="container flex items-center justify-between mx-auto">
-                <Link href="/" className="bg-white-800 font-bold text-2xl">
+                <Link href={`/${locale}`} className="bg-white-800 font-bold text-2xl">
                     NEXTNEWS
                 </Link>
                 <LanguageSwitcher />

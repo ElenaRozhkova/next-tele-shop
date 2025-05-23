@@ -1,5 +1,5 @@
 import "./globals.css";
-import Navbar from '@/app/[locale]/components/Navbar'
+import Navbar from '@/app/components/Navbar'
 import SideNav from '@/app/ui/menu/side-nav'
 import { NextIntlClientProvider } from 'next-intl'
 import React from 'react'
@@ -24,18 +24,17 @@ export default async function RootLayout({ children, params }) {
   return (
     <html lang={locale}>
       <body>
-
-        <div className="flex-grow container mx-auto md:overflow-y-auto sm:py-2 px-0">
-          <Navbar />
-
-        </div>
-        <div className="container flex mx-auto h-screen flex-col md:flex-row md:overflow-hidden">
-          <div className="w-full flex-none md:w-64">
-            <SideNav locale={locale} />
+        <NextIntlClientProvider locale={locale} >
+          <div className="flex-grow container mx-auto md:overflow-y-auto sm:py-2 px-0">
+            <Navbar locale={locale} />
           </div>
-          <div className="flex-grow md:overflow-y-auto md:px-12">{children}</div>
-        </div>
-
+          <div className="container flex mx-auto h-screen flex-col md:flex-row md:overflow-hidden">
+            <div className="w-full flex-none md:w-64">
+              <SideNav locale={locale} />
+            </div>
+            <div className="flex-grow md:overflow-y-auto md:px-12">{children}</div>
+          </div>
+        </NextIntlClientProvider>
       </body>
     </html>
   )

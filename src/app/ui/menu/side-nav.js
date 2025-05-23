@@ -5,14 +5,14 @@ import NavLinks from '@/app/ui/menu/nav-links';
 import { getTypes } from '@/app/lib/getTypes';
 
 // Asynchronous function for fetching types data
-export default async function SideNav() {
+export default async function SideNav({ locale }) {
     const types = await getTypes(); // Fetch data here
 
     return (
         <div className="flex h-full flex-col px-3 py-4 md:px-2">
             <Link
                 className="mb-2 flex h-10 items-center justify-center rounded-md bg-gray-800 text-white p-4 md:h-10"
-                href="/"
+                href={`/${locale}`}
             >
                 <p>Geräte</p>
             </Link>

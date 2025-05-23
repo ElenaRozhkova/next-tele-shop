@@ -1,3 +1,6 @@
+import withNextIntl from 'next-intl/plugin';
+import nextIntlConfig from './next-intl.config.js'; // или .ts, если tsconfig разрешает импорт TS в ESM
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
@@ -5,5 +8,4 @@ const nextConfig = {
     },
 };
 
-export default nextConfig;
-
+export default withNextIntl(nextIntlConfig)(nextConfig);

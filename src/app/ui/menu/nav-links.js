@@ -3,13 +3,14 @@ import { usePathname } from 'next/navigation'; // Use this instead of useRouter
 import { DevicePhoneMobileIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import Link from 'next/link';
+import { useLocale } from 'next-intl';
 
 export default function NavLinks({ types }) {
     const pathname = usePathname();  // Use usePathname to get the current pathname in the App Directory
-
+    const locale = useLocale();
     const links = types.map((type) => ({
         name: type.type_name,
-        href: `/${type.type_name}`,
+        href: `/${locale}/${type.type_name}`,
         icon: DevicePhoneMobileIcon,
     }));
 
