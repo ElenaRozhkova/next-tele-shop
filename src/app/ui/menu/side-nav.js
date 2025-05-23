@@ -14,7 +14,7 @@ export default async function SideNav() {
                 className="mb-2 flex h-10 items-center justify-center rounded-md bg-gray-800 text-white p-4 md:h-10"
                 href="/"
             >
-                <p>Geräte2</p>
+                <p>Geräte</p>
             </Link>
             <div className="flex gap-2 flex-wrap grow flex-row justify-between space-x-2 md:flex-col md:space-x-0 md:space-y-2">
                 <NavLinks types={types} /> {/* Pass types here */}
