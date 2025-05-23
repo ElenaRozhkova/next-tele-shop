@@ -1,5 +1,5 @@
-import RecipeList from '@/app/components/RecipeList';
-import BrandFilter from "@/app/components/BrandFilter";
+import RecipeList from '@/app/[locale]/components/RecipeList';
+import BrandFilter from "@/app/[locale]/components/BrandFilter";
 import Search from "@/app/ui/search";
 import { getRecipes } from '@/app/lib/data'
 
@@ -9,9 +9,6 @@ export default async function TypePage({ params, searchParams }) {
     let filteredRecipes = allRecipes.filter(r => r.type_name === type_name);
     const brandFilter = decodeURIComponent(searchParams?.brand_name || '');
     const brand_name = [...new Set(filteredRecipes.map(r => r.brand_name))];
-
-    console.log();
-
 
     //const typeFilter = decodeURIComponent(searchParams?.type_name || '');
 

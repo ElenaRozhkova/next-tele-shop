@@ -1,5 +1,5 @@
-import RecipeList from '@/app/components/RecipeList';
-import BrandFilter from "@/app/components/BrandFilter";
+import RecipeList from '@/app/[locale]/components/RecipeList';
+import BrandFilter from "@/app/[locale]/components/BrandFilter";
 import TypeFilter from "@/app/lib/TypeFilter";
 import Search from "@/app/ui/search";
 import { getRecipes } from '@/app/lib/data'
@@ -8,12 +8,8 @@ import { getRecipes } from '@/app/lib/data'
 
 export default async function Home({ searchParams }) {
   const recipes = await getRecipes();
-
   const brand_name = [...new Set(recipes.map(r => r.brand_name))];
-  const type_name = [...new Set(recipes.map(r => r.type_name))];
-
   const brandFilter = decodeURIComponent(searchParams?.brand_name || '');
-  const typeFilter = decodeURIComponent(searchParams?.type_name || '');
   const query = searchParams?.query?.toLowerCase() || '';
 
   let filteredRecipes = recipes;
@@ -22,18 +18,11 @@ export default async function Home({ searchParams }) {
     filteredRecipes = filteredRecipes.filter(r => r.brand_name === brandFilter);
   }
 
-  if (typeFilter) {
-    filteredRecipes = filteredRecipes.filter(r => r.type_name === typeFilter);
-  }
-
-
   if (query) {
     filteredRecipes = filteredRecipes.filter(r =>
       r.name?.toLowerCase().includes(query)
     );
   }
-
-  //nrhgkj
 
   return (
     <>
@@ -41,7 +30,6 @@ export default async function Home({ searchParams }) {
         <BrandFilter brand_name={brand_name} />
         <Search />
       </div>
-
       <RecipeList recipes={filteredRecipes} />
     </>
   );
